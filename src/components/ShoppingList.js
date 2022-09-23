@@ -3,9 +3,10 @@ import ItemForm from "./ItemForm";
 import Filter from "./Filter";
 import Item from "./Item";
 
-function ShoppingList({ items }) {
+function ShoppingList({ items, onItemFormSubmit }) {
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [search, setSearch] = useState("") // Filter Deliverable #1, where to add state for this feature.
+  const [search, setSearch] = useState(""); // Filter Deliverable #1, where to add state for this feature.
+  
 
   function handleCategoryChange(event) {
     setSelectedCategory(event.target.value);
@@ -21,7 +22,7 @@ function ShoppingList({ items }) {
   
   return (
     <div className="ShoppingList">
-      <ItemForm />
+      <ItemForm onItemFormSubmit={onItemFormSubmit}/>
       <Filter 
         onCategoryChange={handleCategoryChange} 
         //Filter Deliverable #1: Passing state as props

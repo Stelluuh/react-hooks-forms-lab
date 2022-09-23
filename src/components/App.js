@@ -14,10 +14,14 @@ function App() {
     setIsDarkMode((isDarkMode) => !isDarkMode);
   }
 
+  //ItemForm Deliverable #3
+  const handleItemFormSubmit = newItem => setItems([...items, newItem])
+
+  //ItemForm Deliverable #3: pass in handleFormSubmit as prop
   return (
     <div className={"App " + (isDarkMode ? "dark" : "light")}>
       <Header isDarkMode={isDarkMode} onDarkModeClick={handleDarkModeClick} />
-      <ShoppingList items={items} />
+      <ShoppingList items={items} onItemFormSubmit={handleItemFormSubmit} /> 
     </div>
   );
 }
@@ -25,11 +29,14 @@ function App() {
 export default App;
 
 /*
-  Hierarchy
+Hierarchy:
+
 • App
 	• Header
 	• ShoppingList
 		○ ItemForm
 		○ Filter
-    ○ Item
+			§ Item
+		
+
 */

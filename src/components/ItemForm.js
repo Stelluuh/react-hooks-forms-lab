@@ -4,18 +4,44 @@ import { v4 as uuid } from "uuid";
 function ItemForm({ onItemFormSubmit }) {
   //ItemForm Deliverable #1:
   const [name, setName] = useState("")
-  const [selectCategory, setSelectCategory] = useState("Produce")
+  const [category, setCategory] = useState("Produce")
+
+  //ItemForm Deliverable #1:
+  const handleNameChange = e => setName(e.target.value)
+
+  //ItemForm Deliverable #1:
+  const handleSelectCategory = e => setCategory(e.target.value)
+
+  //ItemForm Deliverable #2:
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    onItemFormSubmit({
+      id: uuid(),
+      name,
+      category,
+    });
+  }
+
 
   return (
-    <form className="NewItem">
+    <form className="NewItem" onSubmit={handleSubmit}>
       <label>
         Name:
-        <input type="text" name="name" />
+        <input 
+          type="text" 
+          name="name" 
+          value={name}
+          onChange={handleNameChange}
+        />
       </label>
 
       <label>
         Category:
-        <select name="category">
+        <select 
+          name="category"
+          value={category}
+          onChange={handleSelectCategory}
+        >
           <option value="Produce">Produce</option>
           <option value="Dairy">Dairy</option>
           <option value="Dessert">Dessert</option>
