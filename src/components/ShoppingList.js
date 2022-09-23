@@ -12,9 +12,13 @@ function ShoppingList({ items }) {
   }
 
   const itemsToDisplay = items
-  .filter(item => item.name.toLowerCase().includes(search.toLowerCase())) //Filter Deliverable #4
+  // category: Filter Deliverable #4: refactored this code so that we could included a second filter for the search item.
+    .filter(
+      (item) => selectedCategory === "All" || item.category === selectedCategory
+    )
+  // Filter Deliverable #4: Search Item Display
+    .filter((item) => item.name.toLowerCase().includes(search.toLowerCase()));
   
-
   return (
     <div className="ShoppingList">
       <ItemForm />
