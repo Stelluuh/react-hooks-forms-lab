@@ -23,3 +23,13 @@ function App() {
 }
 
 export default App;
+
+/*
+  Hierarchy
+• App
+	• Header
+	• ShoppingList
+		○ ItemForm
+		○ Filter
+    ○ Item
+*/
